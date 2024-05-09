@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FaViacoin } from "react-icons/fa";
+import React, { useState } from "react";
+
 import { InputField } from "./InputField";
 import { SubmitButton } from "./SubmitButton";
 import { ResetButton } from "./ResetButton";
@@ -14,10 +14,10 @@ export default function Calculator() {
   const [monthError, setMonthError] = useState(false);
   const [yearError, setYearError] = useState(false);
 
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<number | null>(null);
   const [resultError, setResultError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
     setDayError(false);
@@ -66,10 +66,9 @@ export default function Calculator() {
       <div className="max-w-md w-full">
         <div className="bg-white shadow-md rounded-lg p-8 mb-8 text-center text-gray-800 font-bold text-3xl ">
           <div className="flex items-center justify-between mb-6 text-center mt-4 text-lg font-bold text-gray-800">
-            <h2 className="text-lg font-bold text-gray-800 mb-4 text-center">
+            <h1 className="text-lg font-bold text-gray-800 mb-4 text-center mt-4">
               Age Calculator
-            </h2>
-            <FaViacoin className="text-3xl text-gray-800 mr-2" />
+            </h1>
           </div>
           <div className="flex items-center mb-4 text-center mt-4 text-lg font-bold text-gray-800">
             <InputField
